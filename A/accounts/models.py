@@ -14,7 +14,7 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = 'phone_number'        # bar asas in fild etebar sanji mishe --> har chizi ke inja bashe bayad
     # unique=True
-    REQUIRED_FIELDS = ['email']            #vaghti create super user mizanim che fild hayi ro begire
+    REQUIRED_FIELDS = ['email', 'full_name']     #vaghti create super user mizanim che fild hayi ro begire
 
     def __str__(self):
         return self.email
@@ -31,6 +31,14 @@ class User(AbstractBaseUser):
 
     @property
     def is_staff(self):         #staff be karbar hayi gofte mishe k ejaze daran vared admin panel beshan
-        "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+
+class OtpCode(models.Model):
+    phone_number = models.CharField(max_length=11)
+    code = models.PositiveSmallIntegerField()
+    created = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.phone_number} - {self.code} - {self.created}'
