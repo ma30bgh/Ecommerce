@@ -2,6 +2,9 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home:home'%}">Home</a>
         <a class="navbar-brand" href="{% url 'accounts:register'%}">Register</a>
+        {% if request.user.is_admin %}
+        <a class="navbar-brand" href="{% url 'accounts:register'%}">Register</a>
+        {%endif%}
           <!-- name space : name file in template-->
       </div>
     </nav>
