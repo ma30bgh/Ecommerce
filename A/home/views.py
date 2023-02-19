@@ -3,6 +3,8 @@ from django.views import View
 from .models import Product
 from . import tasks
 from django.contrib import messages
+from utils import IsAdminUserMixin
+
 
 
 class HomeView(View):
@@ -17,7 +19,7 @@ class ProductDetailView(View):
         return render(request, 'home/detail.html', {'product': product})
 
 
-class BucketView(View):
+class BucketView(IsAdminUserMixin,View):
     template_name='home/bucket.html'
 
     def get(self,request):
@@ -25,8 +27,8 @@ class BucketView(View):
         return render(request,self.template_name, {'objects': objects})
 
 
-class DeleteBucketObject(View):
-    def get(self,request):
+class DeleteBucketObject(IsAdminUserMixin,View):
+    def get(self,request,key):
         tasks.delete_object_task.delay(key)
         messages.success(request, 'your object will be delete soon.', 'info')
         return redirect('home:bucket')

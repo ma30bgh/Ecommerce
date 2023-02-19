@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!m59m(&z9t$_8bcr8o9iy@qkky=rc$z_@a-@%c1#+&13d)xw)4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -135,8 +135,8 @@ AUTH_USER_MODEL = 'accounts.User'
 
 #abrarvan
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = '96b36791-9753-49df-88f0-b9e25614190b'
-AWS_SECRET_ACCESS_KEY = '8b25eb2695216d4f6e5dc4318faa5d7cd0890606'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.com'
 AWS_STORAGE_BUCKET_NAME = 'django-onlineshop'
 AWS_SERVICE_NAME = 's3'

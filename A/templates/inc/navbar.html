@@ -1,9 +1,14 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home:home'%}">Home</a>
+        {% if request.user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'accounts:logout'%}">Logout</a>
+        {%else%}
         <a class="navbar-brand" href="{% url 'accounts:register'%}">Register</a>
+        <a class="navbar-brand" href="{% url 'accounts:login'%}">Login</a>
+        {% endif %}
         {% if request.user.is_admin %}
-        <a class="navbar-brand" href="{% url 'accounts:register'%}">Register</a>
+        <a class="navbar-brand" href="{% url 'home:bucket'%}">Bucket</a>
         {%endif%}
           <!-- name space : name file in template-->
       </div>
