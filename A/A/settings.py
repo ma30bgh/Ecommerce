@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'storages',
+    'django_celery_beat',
 
 ]
 
@@ -109,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
